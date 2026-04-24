@@ -8,12 +8,14 @@ const ProductCategory = () => {
   const { products } = useAppContext();
   const { category } = useParams();
 
+  console.log("Product Category caliing")
+
   const searchCategory = categories.find(
     (item) => item.path.toLowerCase() === category.toLowerCase()
   );
 
   const filteredProducts = products.filter(
-    (product) => product.category.toLowerCase() === category
+    (product) => product.category.toLowerCase() === category.toLowerCase()
   );
   console.log(filteredProducts);
 
