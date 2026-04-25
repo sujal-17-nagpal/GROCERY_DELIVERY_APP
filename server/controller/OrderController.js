@@ -33,7 +33,7 @@ export const placeOrderCOD = async (req, res) => {
       .status(200)
       .json({ success: true, message: "order placed successfully" });
   } catch (err) {
-    console.log(err.message);
+    console.log("order place error");
     return res.status(400).json({ message: err.message });
   }
 };

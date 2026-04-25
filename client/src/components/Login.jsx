@@ -13,18 +13,24 @@ const Login = () => {
     const onSubmitHandler = async (event) =>{
         try{
             event.preventDefault();
+            console.log()
             const {data} = await axios.post(`/api/user/${state}`,{name,email,password})
+            // console.log(data)
             if(data.success){
+                // console.log("success")
                 navigate('/')
                 setUser(data.user)
                 setShowUserLogin(false);
                 toast.success("logged in")
             } else {
+                
                 toast.error(data.message)
             }
             
         } catch(error){
-            toast.error(error.message)
+            // console.log("login api not working")
+            const errorMessage = error.response?.data?.message || error.message;
+            toast.error(errorMessage)
         }
         
        
